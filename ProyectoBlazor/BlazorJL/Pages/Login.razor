@@ -1,0 +1,36 @@
+﻿@page "/login"
+@page "/login/{ErrorMessage}"
+@inject NavigationManager navigationManager
+@attribute [AllowAnonymous]
+
+<h3 style="color:blueviolet; padding:6px; font-weight:600" colspan="2" >Login</h3>
+
+@if (ErrorMessage != null)
+{
+    <div class="text-danger">@ErrorMessage</div>
+}
+
+<form method="post" action="/account/login">
+    <div  style=" color:black; padding:6px; font-weight:600" align="center" colspan="2">
+    <div class="form-group">
+        <label>Usuario:</label>
+        <input type="text" name="Codigo" class="form-control col-sm-6 col-md-4" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label>Clave:</label>
+        <input type="password" name="Clave" class="form-control col-sm-6 col-md-4" />
+    </div>
+    <br />
+    <button class="btn btn-primary" style="color:azure">Entrar</button>        
+    </div>    
+    
+
+   
+
+</form>
+
+
+@code {
+    [Parameter] public string ErrorMessage { get; set; }
+}
